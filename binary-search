@@ -1,0 +1,24 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+def bsearch(st,end,mylist,target):
+    print("start:",st,"end: ",end)
+    mid=(st+end)//2
+    print(mid)
+    if mylist[mid]==target:
+        print("target: ", target,"found on index two : ",mid)
+    elif target>mylist[mid]:
+        bsearch(mid+1,end,mylist,target)
+    elif target<mylist[mid]:
+        bsearch(st,mid-1,mylist,target)   
+    else:
+        print("not found on any index " )
+        
+        
+        
+        
+myl=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+target=12
+start=0
+endpoint=int(len(myl))
+
+bsearch(start,endpoint,myl,target)
