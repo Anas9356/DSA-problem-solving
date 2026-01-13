@@ -1,0 +1,24 @@
+31. Next Permutation
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        n=len(nums)
+        p1=n-2
+#brekpoint
+        while  p1>=0 and nums[p1] >= nums[p1+1]:
+            p1-=1
+# just greter number
+        if p1>=0:
+            p2=n-1
+            while nums[p2]<=nums[p1]:
+                p2-=1
+            nums[p1],nums[p2]=nums[p2],nums[p1]
+# reverse right array from index
+        nums[p1+1:] = reversed(nums[p1+1:])
+
+
+         
+
+        
