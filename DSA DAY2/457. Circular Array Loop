@@ -1,0 +1,35 @@
+class Solution:
+    def circularArrayLoop(self, nums: List[int]) -> bool:
+        n = len(nums)
+
+        def nexti(crnt):
+            return (crnt + nums[crnt]) % n
+
+        for i in range(n):
+            if nums[i] == 0:
+                continue
+
+            myset = set()
+            myset.add(i)
+
+            isPos = nums[i] > 0
+            crnt = i
+
+            while True:
+                nextI = nexti(crnt)
+
+                # one-length loop not allowed
+                if nextI == crnt:
+                    break
+
+                # direction change
+                if (nums[nextI] > 0) != isPos:
+                    break
+
+                if nextI in myset:
+                    return True
+
+                myset.add(nextI)
+                crnt = nextI
+
+        return False
