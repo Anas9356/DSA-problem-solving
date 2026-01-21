@@ -44,6 +44,31 @@ class Solution:
         return Mx
 
 
+# passed all test cases
+class Solution:
+    def totalFruit(self, fruits: list[int]) -> int:
+        last = -1
+        secondLast = -1
+        lastCount = 0
+        curr = 0
+        ans = 0
+
+        for f in fruits:
+            if f == last or f == secondLast:
+                curr += 1
+            else:
+                curr = lastCount + 1
+
+            if f == last:
+                lastCount += 1
+            else:
+                lastCount = 1
+                secondLast = last
+                last = f
+
+            ans = max(ans, curr)
+
+        return ans
 
 
 
